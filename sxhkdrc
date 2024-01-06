@@ -4,28 +4,25 @@ super + Escape
 
 # open terminal
 super + Return
-	$TERMINAL
-
-super + w
-	qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.activateLauncherMenu
+	kitty tmux new-session -A -s main
 
 # open terminal apps
 super + t; e
-    $TERMINAL -e nvim
+    kitty -e nvim
 super + t; n
-    $TERMINAL -e note
+    kitty -e note
 super + t; N
-    $TERMINAL -e now
+    kitty -e now
 super + t; m
-    $TERMINAL -e ncmpcpp
+    kitty -e ncmpcpp
 super + t; r
-    $TERMINAL -e ranger
+    kitty -e ranger
 super + t; h
-    $TERMINAL -e htop
+    kitty -e htop
 
 # apps 
 super + b
-	$BROWSER
+	qutebrowser
 super + e
     xdg-open ~
 
@@ -40,7 +37,10 @@ super + ctrl + {q,r}
 
 # logout from plasma
 super + l
-	qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 -1
+	qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 -1 2
+
+super + L
+	qdbus org.kde.ksmserver /KSMServer org.kde.KSMServerInterface.logout -1 3 2
 
 # close and kill
 super + {_,shift + }c
